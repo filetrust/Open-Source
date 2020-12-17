@@ -81,7 +81,7 @@ debug "Committing and pushing changes"
     cd "$tmp_dir" || exit 1
     git add .
     git commit -m "$WIKI_COMMIT_MESSAGE"
-    git push --set-upstream "$GIT_REPOSITORY_URL" main
+    git push --set-upstream "$GIT_REPOSITORY_URL" master
 ) || exit 1
 
 rm -rf "$tmp_dir"
