@@ -2,7 +2,7 @@
 
 ## Starting the VM
 
-* Access esxi server with valid credentials
+* Access esxi  server with valid credentials
 
 * Create a new Linux, Ubuntu (64-bit) VM with minimal hardware specs
     * 1 CPU
