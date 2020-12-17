@@ -36,7 +36,7 @@ jobs:
         run: ./scripts/wiki_script.sh
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          TARGET_REPO: samarthdd/git-wiki-action.wiki.git
+          TARGET_REPO: k8-proxy/ESXI-setup-server.wiki.git
           FOLDER: "OVAs-creation/OVA-MDs"
           EXCLUDE_REGEX: Creating_OVA
           WIKI_NAME: ESXI_VMware_Setup.md
