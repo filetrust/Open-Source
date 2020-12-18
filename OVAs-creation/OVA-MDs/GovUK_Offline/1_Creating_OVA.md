@@ -1,7 +1,22 @@
-### This MD contains details on how to create GovUk OVA from scratch.
-### Prerequisite: VM on ESXi is created (first part of 2_StartingVM_ImportingOVA.md)
+### This MD contains details on how to create GovUK OVA from scratch.
 
-- Access the VM
+## Starting the VM
+
+* Access ESXi server with valid credentials 
+
+* Create a new Linux, Ubuntu (64-bit) VM with the follwing hardware specs:
+    * 1 CPU,
+    * 1 GB RAM
+    * 80 GB of Harddisk (set disk Provisioning to be thin provisioned) 
+
+
+* Set CD/DVD drive is connected at power on and choose the ISO to boot from (live ubuntu server iso)
+
+  ![image](https://user-images.githubusercontent.com/58347752/100460151-66715900-30cf-11eb-914e-2f802acb5052.png)
+  
+* Finish installation and reboot the VM.
+
+## Installation
 
 - Clone the repo and run configure.sh from /home/glasswall/GW-proxy/OVAs-creation/govuk
   

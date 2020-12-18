@@ -1,22 +1,4 @@
-## GovUK Offline OVA Import
-
-## Starting the VM
-
-* Access ESXi server with valid credentials 
-
-* Create a new Linux, Ubuntu (64-bit) VM with the follwing hardware specs:
-    * 1 CPU,
-    * 1 GB RAM
-    * 80 GB of Harddisk (set disk Provisioning to be thin provisioned) 
-
-
-* Set CD/DVD drive is connected at power on and choose the ISO to boot from (live ubuntu server iso)
-
-  ![image](https://user-images.githubusercontent.com/58347752/100460151-66715900-30cf-11eb-914e-2f802acb5052.png)
-  
-* Finish installation and reboot the VM.
-
-## Importing OVA to ESXI
+## GovUK Offline OVA Import to ESXi
 
 - Download **s3://glasswall-sow-ova/vms/gov-uk/GovUK.ova** (AWS S3 bucket), you can download it [here](https://glasswall-sow-ova.s3-eu-west-1.amazonaws.com/vms/gov-uk/GovUK.ova)
 
