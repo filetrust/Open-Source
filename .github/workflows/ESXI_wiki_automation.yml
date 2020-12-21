@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+name: wiki_automation_CI
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ master,main ]
+    paths: "OVAs-creation/OVA-MDs/**"
+    
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-18.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Moving build to artifacts directory
+        run: |
+          chmod +x ./scripts/wiki_script.sh
+
+      - name: Run a one-line script
+        run: ./scripts/wiki_script.sh
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          TARGET_REPO: k8-proxy/GW-proxy.wiki.git
+          FOLDER: "OVAs-creation/OVA-MDs"
+          EXCLUDE_REGEX: Creating_OVA
+          WIKI_NAME: ESXI_VMware_Setup.md

@@ -437,3 +437,43 @@ history -c && history -w
 
 12. Check IP address using **ip a**.
 
+## Configure VM as an outbound NAT gateway
+### In Support VM
+- on ESXI, add network interface: Actions > Edit Settings > Add network adapter
+- on Support VM, run `ip a` to get network interface name
+- run `iptables --table nat --append POSTROUTING --out-interface ens192 -j MASQUERADE`, where ens192 is the main interface 
+- run `iptables --append FORWARD --in-interface ens224 -j ACCEPT` where ens224 is the NAT interface
+- configure netowrk interfaces by  `sudo vi /etc/network/interfaces`
+
+    ```
+    auto ens192
+    iface ens192 inet static
+        address 91.109.26.21
+        netmask 255.255.255.224
+
+    auto ens224
+    iface ens224 inet static
+        address 192.168.210.1
+        netmask 255.255.255.0
+    ```
+- restart service by running, `sudo systemctl restart systemd-networkd.service`
+
+### In Testing VM
+- get network interface name by running, `ip a`
+- `cd /etc/netplan` & run `ls` to check the files available (there should only be 1), so we'll modify it with `sudo vi $name_of_file)` and modify it to be:
+    ```
+    network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        ens160:
+        dhcp4: no
+        addresses:
+            - 192.168.210.2/24
+        gateway4: 192.168.210.1
+        nameservers:
+            addresses: [8.8.8.8]
+    ```
+- run `sudo netplan apply`
+- on testing VM, run `ping 192.168.210.1` and `ping google.com`
+- on support VM, run `ping 192.168.210.2`
