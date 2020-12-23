@@ -1,4 +1,4 @@
-## LinuxDesktop OVA Usage
+## Linux Desktop OVA Usage
 
 * Login into the VM that has Linux Desktop OVA imported: (`glasswall/Gl@$$wall`)
 * Open Firefox and verify home page is set to: https://github.com/k8-proxy/ESXI-setup-server/wiki

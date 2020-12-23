@@ -4,3 +4,6 @@
     (i.e: `https://<VM IP>/`) 
     and access the project UI
 * Login (no pass is needed at the moment)
+
+---
+---
