@@ -6,3 +6,4 @@
 | HAProxy-ICAP-IR 	| LB          	| 54.77.168.168  	| v0.0.1  	| AWS/Ireland (eu-west-1) 	|
 | ICAP-SOW-1      	| ICAP        	| 54.155.107.189 	| v0.0.1  	| AWS/Ireland (eu-west-1) 	|
 | ICAP-SOW-2      	| ICAP        	| 34.240.204.39  	| v0.0.1  	| AWS/Ireland (eu-west-1) 	|
+| HAProxy-ICAP-2  	| LB          	| 54.154.157.201 	| v0.0.1  	| AWS/Ireland (eu-west-1) 	|
