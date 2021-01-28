@@ -7,7 +7,7 @@
     - Navigate to [GithubActions](https://github.com/k8-proxy/GW-Releases/actions?query=workflow%3Aicap-server)
     - Select latest succesfull `icap-server` action > Select `build ami` stage
     - Under `Build AMI/OVA` step, search for `amazon-ebs: Creating AMI` and get folowing string starting with `icap-server-<random_string>`
-    - OVA URL will be: `s3://glasswall-sow-ova/vms/SOW-REST/icap-server/`+`sting from previous step`
+    - OVA URL will be: `s3://glasswall-sow-ova/vms/SOW-REST/icap-server/`+`string from previous step`
 
 ## Deploying & Usage OVA on ESXI
 - For deployment, please see [here](https://github.com/k8-proxy/GW-proxy/blob/master/OVAs-creation/OVA-MDs/ICAPServer/2_Importing_OVA.md)
@@ -27,3 +27,13 @@
 - For usage, please see [here](https://github.com/filetrust/icap-delivery/wiki/Sending-files-via-C-ICAP-Client)
 
 
+## Deployment & Usage of OVA on VirtualBox
+- Import `k8-rebuild.ova` with the (8GB RAM, 2 Cores, and 20 GB disk)
+    - to increase disk size, `Ctrl+D` > Pick your K8-Rebuild VM > Properties
+    - if size hasn't been updated on the VM, run:
+        ```
+        sudo growpart /dev/sda1
+        sudo resize2fs /dev/sda1
+        ```
+
+- For usage, please see [here](https://github.com/k8-proxy/GW-proxy/blob/master/OVAs-creation/OVA-MDs/FileDrop/3_OVA_Usage.md)
