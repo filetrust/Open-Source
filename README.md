@@ -165,3 +165,11 @@ Example:
 
 - In case you get error code 9 in your browser, it is due to ICAP TimeBomb for License files. Give it some time, it will disappears.
 
+## ESXI01 reset procedure
+* **Note**: After reset, this command must be executed so that packer could build and push images.
+
+```
+esxcli system settings advanced set -o /Net/GuestIPHack -i 1
+```
+- [Reference](https://www.packer.io/docs/builders/vmware/iso)
+
